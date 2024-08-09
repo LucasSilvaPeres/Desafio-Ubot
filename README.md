@@ -30,3 +30,4 @@ Contem um script Python que utiliza a API do TMDb para buscar dados de filmes e 
 4. Rodar o script
    ```bash
    python buscar_filmes.py
+
