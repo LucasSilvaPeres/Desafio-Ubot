@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_user
+      MYSQL_PASSWORD: your_password
+    volumes:
+      - ./database_dump.sql:/docker-entrypoint-initdb.d/database_dump.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+    driver: bridge
