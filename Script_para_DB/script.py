@@ -2,6 +2,7 @@ import base64
 import time
 import tkinter as tk
 from tkinter import simpledialog
+import uuid
 import requests
 import mysql.connector
 
@@ -85,18 +86,17 @@ while quantidade_inserida < limite:
 
         movie_details_response = movie_details_response.json()
 
-        id = movie['id']
+        id = str(uuid.uuid4())
         titulo = movie['title']
         data_lancamento = movie['release_date']
         sinopse = movie['overview']
         duracao = movie_details_response.get('runtime', None)
         categorias = ', '.join([genre['name'] for genre in movie_details_response.get('genres', [])])
-        capa = pegar_poster_filme(movie['poster_path'])
 
         cursor.execute("""
-            INSERT INTO Filmes (id, titulo, data_lancamento, sinopse, duracao, categorias, capa) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """, (id, titulo, data_lancamento, sinopse, duracao, categorias, capa))
+            INSERT INTO Filmes (id, titulo, data_lancamento, sinopse, duracao, categorias) 
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (id, titulo, data_lancamento, sinopse, duracao, categorias))
 
         quantidade_inserida += 1
         print(f"Filme {titulo} inserido com sucesso. Total inseridos: {quantidade_inserida}")
