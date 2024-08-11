@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MovieApi.Core\MovieApi.Core.csproj" />
     <ProjectReference Include="..\MovieApi.DB\MovieApi.DB.csproj" />
+    <ProjectReference Include="..\MovieApi.Infra\MovieApi.Infra.csproj" />
   </ItemGroup>
 
 </Project>

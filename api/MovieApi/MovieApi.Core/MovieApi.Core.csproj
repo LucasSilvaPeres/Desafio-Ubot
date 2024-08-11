@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MovieApi.DB\MovieApi.DB.csproj" />
+    <ProjectReference Include="..\MovieApi.Infra\MovieApi.Infra.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
